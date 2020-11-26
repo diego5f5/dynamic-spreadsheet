@@ -5,6 +5,8 @@ import spreadsheet from "../assets/spreadsheet.svg";
 
 // Components
 import Cell from "../components/Cell";
+import IndexColumn from "../components/IndexColumn";
+import RegistrationModal from "../components/RegistrationModal";
 
 // Styles
 import {
@@ -16,6 +18,7 @@ import {
   SpreadsheetContainer,
   FooterContainer,
   AddRowsButton,
+  GridWrapper,
   Column,
   ColumnHeader,
 } from "./styles";
@@ -25,19 +28,42 @@ const testData = [
     columnName: "Teste 0",
     columnType: "text",
     isRequired: true,
-    rows: [{ value: "" }, { value: "" }, { value: "" }, { value: "" }],
+    rows: [
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+    ],
   },
   {
-    columnName: "Teste 1",
+    columnName: "Teste 1 wqeqwe wqewqe wqeq ",
     columnType: "number",
     isRequired: false,
-    rows: [{ value: "" }, { value: "" }, { value: "" }, { value: "" }],
+    rows: [
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+      { value: "" },
+    ],
   },
 ];
 
 export default function Main() {
   const [spreadsheetData, setSpreadsheetData] = useState(testData);
   const [totalRows, setTotalRows] = useState(0);
+  const [modalIsShowing, setModalIsShowing] = useState(false);
 
   const handleChangeInput = (value, indexC, indexR) => {
     const auxData = [...spreadsheetData];
@@ -56,7 +82,25 @@ export default function Main() {
     setTotalRows(number + totalRows);
   };
 
-  const createNewColumn = () => {};
+  const createNewColumn = () => {
+    spreadsheetData.push({
+      columnName: "Teste 0",
+      columnType: "text",
+      isRequired: true,
+      rows: [
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+        { value: "" },
+      ],
+    });
+  };
 
   return (
     <Container>
@@ -68,17 +112,27 @@ export default function Main() {
       <ColButton
         title="Add a new Column"
         onClick={() => {
-          createNewColumn();
+          setModalIsShowing(true);
+          // createNewColumn();
         }}
       >
         New column +
       </ColButton>
 
-      <SpreadsheetContainer>
-        {spreadsheetData.length !== 0
-          ? spreadsheetData.map((column, indexC) => (
+      {modalIsShowing ? (
+        <RegistrationModal closeModal={() => setModalIsShowing(false)} />
+      ) : null}
+
+      {spreadsheetData && spreadsheetData.length !== 0 ? (
+        <SpreadsheetContainer>
+          <GridWrapper>
+            <IndexColumn totalRows={totalRows} />
+            {spreadsheetData.map((column, indexC) => (
               <Column key={indexC}>
-                <ColumnHeader>{column.columnName}</ColumnHeader>
+                <ColumnHeader title={column.columnName}>
+                  {column.columnName}
+                </ColumnHeader>
+
                 {column.rows.map((row, indexR) => (
                   <Cell
                     key={`${indexC}-${indexR}`}
@@ -90,9 +144,10 @@ export default function Main() {
                   />
                 ))}
               </Column>
-            ))
-          : null}
-      </SpreadsheetContainer>
+            ))}
+          </GridWrapper>
+        </SpreadsheetContainer>
+      ) : null}
 
       <FooterContainer>
         {spreadsheetData.length !== 0 ? (

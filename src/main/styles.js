@@ -49,27 +49,26 @@ export const ColButton = styled.button`
 // Body
 export const SpreadsheetContainer = styled.div`
   display: flex;
-  width: 100%;
-  border: solid 1px red;
   overflow: auto;
+  max-width: 100%;
 
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   ::-webkit-scrollbar-button {
-    width: 0px;
+    width: 8px;
     height: 0px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #b9b9b9;
+    background: #d8d8d8;
     border-radius: 5px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #9a9a9a;
+    background: #d8d8d8;
   }
   ::-webkit-scrollbar-thumb:active {
-    background: #9a9a9a;
+    background: #d8d8d8;
   }
   ::-webkit-scrollbar-track {
     background: transparent;
@@ -86,11 +85,27 @@ export const SpreadsheetContainer = styled.div`
   }
 `;
 
-export const Column = styled.div``;
+export const GridWrapper = styled.div`
+  display: flex;
+  border: solid 1px #989898;
+  height: max-content;
+`;
+
+export const Column = styled.div`
+  width: 150px;
+`;
 
 export const ColumnHeader = styled.div`
+  padding: 3px 3px;
+  font-weight: bold;
+  font-size: 14px;
+  margin: auto;
   height: 24px;
-  border: solid 1px black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: solid 1px #989898;
+  text-align: center;
 `;
 
 // Footer

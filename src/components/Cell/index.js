@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Styles
 import { Container, InputCell } from "./styles";
@@ -33,7 +33,7 @@ export default function Cell({ columnType, value, onChangeValue, onBlur }) {
   return (
     <Container>
       <InputCell
-        placeholder={error}
+        title={error}
         error={error}
         type="text"
         value={value}
