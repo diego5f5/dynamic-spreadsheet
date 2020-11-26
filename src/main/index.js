@@ -6,7 +6,7 @@ import spreadsheet from "../assets/spreadsheet.svg";
 // Components
 import Cell from "../components/Cell";
 import IndexColumn from "../components/IndexColumn";
-import RegistrationModal from "../components/RegistrationModal";
+import AddingColumnsModal from "../components/AddingColumnsModal";
 
 // Styles
 import {
@@ -61,7 +61,7 @@ const testData = [
 ];
 
 export default function Main() {
-  const [spreadsheetData, setSpreadsheetData] = useState(testData);
+  const [spreadsheetData, setSpreadsheetData] = useState([]);
   const [totalRows, setTotalRows] = useState(0);
   const [modalIsShowing, setModalIsShowing] = useState(false);
 
@@ -82,25 +82,7 @@ export default function Main() {
     setTotalRows(number + totalRows);
   };
 
-  const createNewColumn = () => {
-    spreadsheetData.push({
-      columnName: "Teste 0",
-      columnType: "text",
-      isRequired: true,
-      rows: [
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-        { value: "" },
-      ],
-    });
-  };
+  const createNewColumn = (column) => {};
 
   return (
     <Container>
@@ -120,7 +102,10 @@ export default function Main() {
       </ColButton>
 
       {modalIsShowing ? (
-        <RegistrationModal closeModal={() => setModalIsShowing(false)} />
+        <AddingColumnsModal
+          handleSave={createNewColumn}
+          closeModal={() => setModalIsShowing(false)}
+        />
       ) : null}
 
       {spreadsheetData && spreadsheetData.length !== 0 ? (
