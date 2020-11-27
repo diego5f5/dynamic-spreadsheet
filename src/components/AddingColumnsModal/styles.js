@@ -76,7 +76,7 @@ export const LabelText = styled.div`
   margin-bottom: 5px;
 `;
 
-export const NameInput = styled.input`
+export const TitleInput = styled.input`
   width: 100%;
   height: 35px;
   border: solid 2px #989898;

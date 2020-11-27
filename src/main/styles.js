@@ -95,15 +95,13 @@ export const Column = styled.div`
   width: 150px;
 `;
 
-export const ColumnHeader = styled.div`
-  padding: 3px 3px;
+export const ColumnHeader = styled.input`
+  padding: 0 3px;
   font-weight: bold;
-  font-size: 14px;
-  margin: auto;
-  height: 24px;
-  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14px;
+  height: 24px;
+  width: 100%;
   border: solid 1px #989898;
   text-align: center;
 `;

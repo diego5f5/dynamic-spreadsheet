@@ -9,7 +9,7 @@ import {
   CloseModal,
   ModalBodyContainer,
   LabelText,
-  NameInput,
+  TitleInput,
   OptionsContainer,
   OptionTypeContainer,
   CheckBoxContainer,
@@ -20,13 +20,9 @@ import {
 } from "./styles";
 
 export default function AddingColumnsModal({ closeModal, handleSave }) {
+  const [columnTitle, setColumnTitle] = useState("");
+  const [columnType, setColumnType] = useState("text");
   const [isRequired, setIsRequired] = useState(false);
-  const [columnType, setColumnType] = useState({
-    text: true,
-    number: false,
-    date: false,
-    select: false,
-  });
 
   return (
     <Modal>
@@ -36,60 +32,38 @@ export default function AddingColumnsModal({ closeModal, handleSave }) {
           <CloseModal onClick={() => closeModal()}>&times;</CloseModal>
         </ModalHeaderContainer>
         <ModalBodyContainer>
-          <LabelText>Name:</LabelText>
-          <NameInput />
+          <LabelText>Title:</LabelText>
+          <TitleInput
+            value={columnTitle}
+            placeholder={"Column Title"}
+            onChange={(e) => {
+              setColumnTitle(e.currentTarget.value);
+            }}
+          />
 
           <LabelText>Type:</LabelText>
           <OptionsContainer>
             <OptionTypeContainer
-              selected={columnType.text}
-              onClick={() =>
-                setColumnType({
-                  text: true,
-                  number: false,
-                  date: false,
-                  select: false,
-                })
-              }
+              selected={columnType === "text"}
+              onClick={() => setColumnType("text")}
             >
               Text
             </OptionTypeContainer>
             <OptionTypeContainer
-              selected={columnType.number}
-              onClick={() =>
-                setColumnType({
-                  text: false,
-                  number: true,
-                  date: false,
-                  select: false,
-                })
-              }
+              selected={columnType === "number"}
+              onClick={() => setColumnType("number")}
             >
               Number
             </OptionTypeContainer>
             <OptionTypeContainer
-              selected={columnType.date}
-              onClick={() =>
-                setColumnType({
-                  text: false,
-                  number: false,
-                  date: true,
-                  select: false,
-                })
-              }
+              selected={columnType === "date"}
+              onClick={() => setColumnType("date")}
             >
               Date
             </OptionTypeContainer>
             <OptionTypeContainer
-              selected={columnType.select}
-              onClick={() =>
-                setColumnType({
-                  text: false,
-                  number: false,
-                  date: false,
-                  select: true,
-                })
-              }
+              selected={columnType === "select"}
+              onClick={() => setColumnType("select")}
             >
               Select
             </OptionTypeContainer>
@@ -101,7 +75,14 @@ export default function AddingColumnsModal({ closeModal, handleSave }) {
           </CheckBoxContainer>
 
           <ButtonsContainer>
-            <ModalButton onClick={() => handleSave()}>Save</ModalButton>
+            <ModalButton
+              onClick={() => {
+                handleSave({ columnTitle, columnType, isRequired, rows: [] });
+                closeModal();
+              }}
+            >
+              Save
+            </ModalButton>
             <ModalButton cancel onClick={() => closeModal()}>
               Cancel
             </ModalButton>

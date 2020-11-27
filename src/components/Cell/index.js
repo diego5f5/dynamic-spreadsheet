@@ -1,27 +1,37 @@
 import React, { useState } from "react";
 
+// Libraries
+import moment from "moment";
+
 // Styles
 import { Container, InputCell } from "./styles";
 
-export default function Cell({ columnType, value, onChangeValue, onBlur }) {
+export default function Cell({ columnType, isRequired, value, onChangeValue }) {
   const [error, setError] = useState(null);
 
   const cellValidations = () => {
-    if (!value) {
+    if (!value && isRequired) {
       setError("Required");
     } else {
       setError(null);
       switch (columnType) {
         case "number":
-          // Fractional, positive and negative numbers
-          if (/^-?(0|[1-9]\d*)(\.\d+)?$/.test(value)) {
+          if (isNaN(value)) {
+            setError("Invalid");
+          } else {
+            setError(null);
+          }
+          break;
+
+        case "date":
+          if (moment(value, "DD/MM/YYYY", true).isValid() || value === "") {
             setError(null);
           } else {
             setError("Invalid");
           }
           break;
 
-        case "text":
+        case "select":
           break;
 
         default:
