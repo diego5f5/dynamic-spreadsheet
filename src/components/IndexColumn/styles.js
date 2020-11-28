@@ -11,4 +11,6 @@ export const RowContainer = styled.div`
   justify-content: center;
   align-items: center;
   border: solid 1px #989898;
+  color: #989898;
+  user-select: none;
 `;

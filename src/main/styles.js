@@ -17,14 +17,16 @@ export const HeaderContainer = styled.div`
   margin-top: 10px;
 `;
 
-export const MainTitle = styled.h2`
+export const MainTitle = styled.p`
   color: #305dff;
   margin-right: 10px;
   text-align: center;
+  font-size: 22px;
+  font-weight: bold;
 `;
 
 export const SpreadsheetLogo = styled.img`
-  height: 35px;
+  height: 30px;
 `;
 
 export const ColButton = styled.button`
@@ -51,38 +53,6 @@ export const SpreadsheetContainer = styled.div`
   display: flex;
   overflow: auto;
   max-width: 100%;
-
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-  ::-webkit-scrollbar-button {
-    width: 8px;
-    height: 0px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #d8d8d8;
-    border-radius: 5px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #d8d8d8;
-  }
-  ::-webkit-scrollbar-thumb:active {
-    background: #d8d8d8;
-  }
-  ::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 5px;
-  }
-  ::-webkit-scrollbar-track:hover {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-track:active {
-    background: transparent;
-  }
-  ::-webkit-scrollbar-corner {
-    background: transparent;
-  }
 `;
 
 export const GridWrapper = styled.div`
@@ -104,6 +74,10 @@ export const ColumnHeader = styled.input`
   width: 100%;
   border: solid 1px #989898;
   text-align: center;
+
+  :focus {
+    border: solid 2px #305dff;
+  }
 `;
 
 // Footer

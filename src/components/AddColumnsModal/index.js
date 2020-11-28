@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Components
+import SpecifySelectOptions from "../SpecifySelectOptions";
+
 // Styles
 import {
   Modal,
@@ -17,12 +20,14 @@ import {
   CheckedIcon,
   ButtonsContainer,
   ModalButton,
+  Divider,
 } from "./styles";
 
-export default function AddingColumnsModal({ closeModal, handleSave }) {
+export default function AddColumnsModal({ closeModal, handleSave }) {
   const [columnTitle, setColumnTitle] = useState("");
   const [columnType, setColumnType] = useState("text");
   const [isRequired, setIsRequired] = useState(false);
+  const [selectOptions, setSelectOptions] = useState([]);
 
   return (
     <Modal>
@@ -40,6 +45,8 @@ export default function AddingColumnsModal({ closeModal, handleSave }) {
               setColumnTitle(e.currentTarget.value);
             }}
           />
+
+          <Divider />
 
           <LabelText>Type:</LabelText>
           <OptionsContainer>
@@ -69,15 +76,35 @@ export default function AddingColumnsModal({ closeModal, handleSave }) {
             </OptionTypeContainer>
           </OptionsContainer>
 
+          <Divider />
+
+          {columnType === "select" ? (
+            <>
+              <LabelText>Specify Items:</LabelText>
+              <SpecifySelectOptions
+                setSelectOptions={(options) => setSelectOptions(options)}
+              />
+              <Divider />
+            </>
+          ) : null}
+
           <CheckBoxContainer onClick={() => setIsRequired(!isRequired)}>
             {isRequired ? <CheckedIcon /> : <UncheckedIcon />}
             Required
           </CheckBoxContainer>
 
+          <Divider />
+
           <ButtonsContainer>
             <ModalButton
               onClick={() => {
-                handleSave({ columnTitle, columnType, isRequired, rows: [] });
+                handleSave({
+                  columnTitle,
+                  columnType,
+                  isRequired,
+                  selectOptions,
+                  rows: [],
+                });
                 closeModal();
               }}
             >

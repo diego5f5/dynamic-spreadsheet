@@ -1,7 +1,7 @@
-// Libs
-import { FaRegSquare, FaRegCheckSquare } from "react-icons/fa";
-
 import styled from "styled-components";
+
+// Libraries
+import { FaRegSquare, FaRegCheckSquare } from "react-icons/fa";
 
 export const Modal = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const ModalContent = styled.div`
   position: relative;
   margin: auto;
   padding: 0;
-  width: auto;
+  width: 302px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animatetop;
   animation-duration: 0.4s;
@@ -81,7 +81,6 @@ export const TitleInput = styled.input`
   height: 35px;
   border: solid 2px #989898;
   border-radius: 5px;
-  margin-bottom: 20px;
   padding: 0 5px;
   font-size: 16px;
 
@@ -92,7 +91,6 @@ export const TitleInput = styled.input`
 
 export const OptionsContainer = styled.div`
   display: flex;
-  margin-bottom: 20px;
 `;
 
 export const OptionTypeContainer = styled.div`
@@ -133,7 +131,6 @@ export const CheckBoxContainer = styled.div`
   width: max-content;
   cursor: pointer;
   user-select: none;
-  margin-bottom: 20px;
 `;
 
 export const UncheckedIcon = styled(FaRegSquare)`
@@ -170,4 +167,11 @@ export const ModalButton = styled.button`
     cursor: pointer;
     opacity: 0.8;
   }
+`;
+
+export const Divider = styled.div`
+  margin: 15px 0;
+  height: 1px;
+  width: 100%;
+  background-color: #e4e2e2;
 `;

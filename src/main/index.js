@@ -6,7 +6,7 @@ import Logo from "../assets/spreadsheet.svg";
 // Components
 import Cell from "../components/Cell";
 import IndexColumn from "../components/IndexColumn";
-import AddingColumnsModal from "../components/AddingColumnsModal";
+import AddColumnsModal from "../components/AddColumnsModal";
 
 // Styles
 import {
@@ -22,18 +22,6 @@ import {
   Column,
   ColumnHeader,
 } from "./styles";
-
-const testData = {
-  totalRows: 10,
-  columns: [
-    {
-      columnTitle: "Teste 0",
-      columnType: "text",
-      isRequired: true,
-      rows: [],
-    },
-  ],
-};
 
 export default function Main() {
   const [modalIsShowing, setModalIsShowing] = useState(false);
@@ -97,18 +85,13 @@ export default function Main() {
         title="Add a new Column"
         onClick={() => {
           setModalIsShowing(true);
-          // createNewColumn();
         }}
       >
-        New column +
+        Add column +
       </ColButton>
 
-      <button onClick={() => console.log(spreadsheetData)}>
-        GET SPREADSHEET
-      </button>
-
       {modalIsShowing ? (
-        <AddingColumnsModal
+        <AddColumnsModal
           handleSave={createNewColumn}
           closeModal={() => setModalIsShowing(false)}
         />
@@ -132,6 +115,7 @@ export default function Main() {
                     key={`${indexC}-${indexR}`}
                     columnType={column.columnType}
                     isRequired={column.isRequired}
+                    selectOptions={column.selectOptions}
                     onChangeValue={(e) => {
                       handleCellChange(e.target.value, indexC, indexR);
                     }}
@@ -146,7 +130,7 @@ export default function Main() {
 
       <FooterContainer>
         {spreadsheetData.columns.length !== 0 ? (
-          <AddRowsButton onClick={() => addRows(10)}>
+          <AddRowsButton title={"Add 10 more rows"} onClick={() => addRows(10)}>
             Add 10 rows +
           </AddRowsButton>
         ) : null}
