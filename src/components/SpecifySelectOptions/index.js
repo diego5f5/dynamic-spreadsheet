@@ -12,10 +12,12 @@ import {
   RemoveIcon,
 } from "./styles";
 
+// Component to handle the creation and removal of possible items for the selection fields
 const SpecifySelectOptions = ({ setSelectOptions }) => {
   const [currentName, setCurrentName] = useState("");
   const [optionsArray, setOptionsArray] = useState([]);
 
+  // When the user clicks the delete button, then that item is removed from the list
   const handleRemoveItem = (index) => {
     const auxData = [...optionsArray];
     auxData.splice(index, 1);

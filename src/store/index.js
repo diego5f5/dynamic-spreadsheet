@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   columns: [],
 };
 
+// Redux reducer to handle changing of the global state of the spreadsheet
 const spreadsheetReducer = (state = INITIAL_STATE, action) => {
   if (action.type === "SET_SPREADSHEET_DATA") {
     return {

@@ -23,6 +23,7 @@ import {
   Divider,
 } from "./styles";
 
+// Component to render the column creation modal
 const AddColumnsModal = ({ closeModal, handleSave }) => {
   const [columnTitle, setColumnTitle] = useState("");
   const [columnType, setColumnType] = useState("text");
@@ -37,6 +38,7 @@ const AddColumnsModal = ({ closeModal, handleSave }) => {
           <CloseModal onClick={() => closeModal()}>&times;</CloseModal>
         </ModalHeaderContainer>
         <ModalBodyContainer>
+          {/* Field to assign a name to the column */}
           <LabelText>Title:</LabelText>
           <TitleInput
             value={columnTitle}
@@ -48,6 +50,7 @@ const AddColumnsModal = ({ closeModal, handleSave }) => {
 
           <Divider />
 
+          {/* Selection menu for column type */}
           <LabelText>Type:</LabelText>
           <OptionsContainer>
             <OptionTypeContainer
@@ -78,6 +81,7 @@ const AddColumnsModal = ({ closeModal, handleSave }) => {
 
           <Divider />
 
+          {/* when the column type is "select", then the component responsible for specifying the options will be rendered */}
           {columnType === "select" ? (
             <>
               <LabelText>Specify Items:</LabelText>
@@ -88,6 +92,7 @@ const AddColumnsModal = ({ closeModal, handleSave }) => {
             </>
           ) : null}
 
+          {/* Checkbox to define whether the column is required or not */}
           <CheckBoxContainer onClick={() => setIsRequired(!isRequired)}>
             {isRequired ? <CheckedIcon /> : <UncheckedIcon />}
             Required
@@ -95,6 +100,7 @@ const AddColumnsModal = ({ closeModal, handleSave }) => {
 
           <Divider />
 
+          {/* Buttons with options to save and cancel saving */}
           <ButtonsContainer>
             <ModalButton
               onClick={() => {

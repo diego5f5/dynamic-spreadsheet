@@ -6,6 +6,7 @@ import moment from "moment";
 // Styles
 import { Container, SelectCell, SelectOption, InputCell } from "./styles";
 
+// Component to manipulate data entry within each cell of the spreadsheet
 const Cell = ({
   columnType,
   isRequired,

@@ -28,6 +28,7 @@ import {
   ColumnHeader,
 } from "./styles";
 
+// Redux call for the action(SET_SPREADSHEET_DATA) of updating the spreadsheet data
 const setSpreadsheetData = (data) => {
   return {
     type: "SET_SPREADSHEET_DATA",
@@ -35,21 +36,25 @@ const setSpreadsheetData = (data) => {
   };
 };
 
+// Main screen rendering component
 const Main = ({ spreadsheetData, dispatch }) => {
   const [modalIsShowing, setModalIsShowing] = useState(false);
 
+  // Function to handle changes made to header fields
   const handleHeaderChange = (value, indexColumn) => {
     const auxData = { ...spreadsheetData };
     auxData.columns[indexColumn].columnTitle = value;
     dispatch(setSpreadsheetData(auxData));
   };
 
+  // Function to handle changes made to cell fields
   const handleCellChange = (value, indexColumn, indexRow) => {
     const auxData = { ...spreadsheetData };
     auxData.columns[indexColumn].rows[indexRow].value = value;
     dispatch(setSpreadsheetData(auxData));
   };
 
+  // Adds to the columns created the number of rows defined in the function call
   const addRows = (number) => {
     const auxData = { ...spreadsheetData };
     auxData.columns.forEach((column) => {
@@ -61,6 +66,7 @@ const Main = ({ spreadsheetData, dispatch }) => {
     dispatch(setSpreadsheetData(auxData));
   };
 
+  // Function to create columns. When creating the first column of the spreadsheet, by default the number of rows added will be 10, and the other columns created will follow the current number of rows
   const createNewColumn = (column) => {
     // First column created
     if (spreadsheetData.columns.length === 0) {
