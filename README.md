@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+<h1>Dynamic Spreadsheet</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h4>
+This application aims, as the name suggests, to manipulate the creation of a dynamic spreadsheet. A Web application developed with ReactJS that allows the user to create rows and columns in a way that he can specify some details such as: title, type, and even if a column is required.</h4>
 
-## Available Scripts
+<p align="center">
+  <a href="#computer-technologies">Libraries</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="https://www.linkedin.com/in/diegoferreirati/">
+  <img alt="Made By" src="https://img.shields.io/static/v1?label=Made%20By&message=Diego%20Ferreira&color=DarkViolet&style=for-the-badge">
+	</a>
+  
+  <img alt="Languages" src="https://img.shields.io/github/languages/count/diego5f5/dev-search?style=for-the-badge">
+  
+  <img alt="Top Language" src="https://img.shields.io/github/languages/top/diego5f5/dev-search?style=for-the-badge">
+  
+  <img alt="Repo Size" src="https://img.shields.io/github/repo-size/diego5f5/dev-search?style=for-the-badge">
+  
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/diego5f5/dev-search?style=for-the-badge">
+</p>
 
-### `yarn start`
+<h4 align="center">
+  <p>The application allows the registration and the location of Developers within a pre-defined radius, the registration and exclusions of the dev's are carried out in the WEB interface, based on the Github profile of that person.</p>
+</h4>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p align="center">
+  <img width="700" alt="WEB" src="https://i.imgur.com/5X4pb8T.png">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<h4 align="center">
+  <p>In the mobile application, from a visualization on the map, it is possible to locate developers within a radius, filtering by the technologies associated with them.</p>
+</h4>
 
-### `yarn test`
+<p align="center">
+  <img width="200" alt="WEB" src="https://i.imgur.com/rGc6tPU.jpg">
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :books: Libraries
 
-### `yarn build`
+Libraries added to this project:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  <a href="https://nodejs.org/en/docs/" target="_blank">Node.js</a>
+-  <a href="https://www.mongodb.com/cloud/atlas" target="_blank">MongoDB</a>
+-  <a href="https://reactjs.org/docs/getting-started.html" target="_blank">MongoDB</a>
+-  <a href="https://reactnative.dev/docs/getting-started" target="_blank">React Native</a>
+-  <a href="https://docs.expo.io/" target="_blank">Expo</a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :information_source: How to use
 
-### `yarn eject`
+To clone and run this application, you'll need <a href="https://git-scm.com" target="_blank">Git</a>, <a href="https://nodejs.org/en/docs/" target="_blank">Node.js</a> +  <a href="https://yarnpkg.com/" target="_blank">Yarn</a> installed on your computer.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+From your command line:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Install the dependencies for each dev-search folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+# Go into the repository
+$ cd dev-search
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# For each folder
+# backend
+$ cd backend
+$ yarn install
 
-## Learn More
+# mobile
+$ cd mobile
+$ yarn install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# web
+$ cd web
+$ yarn install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Start Back-end 
 
-### Code Splitting
+```bash
+# Move yourself to the backend folder
+$ cd backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Start server
+$ yarn dev
+```
 
-### Analyzing the Bundle Size
+### Start Mobile Application
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+# Move yourself to the mobile folder
+$ cd mobile
 
-### Making a Progressive Web App
+# Start application
+$ yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Start Web Application
 
-### Advanced Configuration
+```bash
+# Move yourself to the web folder
+$ cd web
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Start application
+$ yarn start
+```
