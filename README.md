@@ -54,7 +54,7 @@ In addition to the standard React libraries, some were added to this project:
 
 ## :information_source: How to use
 
-To clone and run this application, you'll need <a href="https://git-scm.com" target="_blank">Git</a>, <a href="https://nodejs.org/en/docs/" target="_blank">Node.js</a> +  <a href="https://yarnpkg.com/" target="_blank">Yarn</a> installed on your computer.
+To run this application, you'll need <a href="https://nodejs.org/en/docs/" target="_blank">Node.js</a> +  <a href="https://yarnpkg.com/" target="_blank">Yarn</a> installed on your computer.
 
 From your command line:
 
