@@ -50,14 +50,16 @@ export const OptionsListContainer = styled.div``;
 export const OptionItemSection = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-left: solid 2px #305dff;
   border-right: solid 2px #305dff;
   margin-bottom: 8px;
   padding: 0 5px;
+  background-color: white;
 `;
 
 export const ItemName = styled.p`
-  color: #305dff;
+  color: #000000;
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;

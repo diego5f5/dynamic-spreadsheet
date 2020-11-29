@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+
+// Libraries
+import { connect } from "react-redux";
 
 // Styles
 import { ColumnContainer, RowContainer } from "./styles";
 
-export default function IndexColumn({ totalRows }) {
+const IndexColumn = ({ totalRows }) => {
   const [rowsArray, setRowsArray] = useState([]);
 
   useEffect(() => {
-    let auxArray = [];
+    const auxArray = [];
     for (let i = 1; i <= totalRows; i++) {
       auxArray.push(i);
     }
@@ -18,9 +21,13 @@ export default function IndexColumn({ totalRows }) {
     <ColumnContainer>
       <RowContainer />
       {rowsArray &&
-        rowsArray.map((RowIndex) => (
-          <RowContainer key={RowIndex}>{RowIndex}</RowContainer>
+        rowsArray.map((IndexRow) => (
+          <RowContainer key={IndexRow}>{IndexRow}</RowContainer>
         ))}
     </ColumnContainer>
   );
-}
+};
+
+export default connect((state) => ({ totalRows: state.totalRows }))(
+  IndexColumn
+);

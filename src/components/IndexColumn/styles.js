@@ -7,6 +7,7 @@ export const ColumnContainer = styled.div`
 export const RowContainer = styled.div`
   height: 24px;
   font-size: 14px;
+  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;

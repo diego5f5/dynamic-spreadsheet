@@ -38,7 +38,7 @@ export const ModalContent = styled.div`
 export const ModalHeaderContainer = styled.div`
   height: 40px;
   display: flex;
-  padding: 0 16px;
+  padding: 0 15px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -66,7 +66,7 @@ export const CloseModal = styled.span`
 `;
 
 export const ModalBodyContainer = styled.div`
-  padding: 16px;
+  padding: 15px;
   background-color: #ffffff;
   border-radius: 0 0 5px 5px;
 `;

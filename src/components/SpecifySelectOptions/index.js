@@ -12,7 +12,7 @@ import {
   RemoveIcon,
 } from "./styles";
 
-export default function CreateSelectOptions({ setSelectOptions }) {
+const SpecifySelectOptions = ({ setSelectOptions }) => {
   const [currentName, setCurrentName] = useState("");
   const [optionsArray, setOptionsArray] = useState([]);
 
@@ -60,4 +60,6 @@ export default function CreateSelectOptions({ setSelectOptions }) {
       </OptionsListContainer>
     </Container>
   );
-}
+};
+
+export default SpecifySelectOptions;

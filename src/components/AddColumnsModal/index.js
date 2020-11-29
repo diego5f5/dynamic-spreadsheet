@@ -23,7 +23,7 @@ import {
   Divider,
 } from "./styles";
 
-export default function AddColumnsModal({ closeModal, handleSave }) {
+const AddColumnsModal = ({ closeModal, handleSave }) => {
   const [columnTitle, setColumnTitle] = useState("");
   const [columnType, setColumnType] = useState("text");
   const [isRequired, setIsRequired] = useState(false);
@@ -118,4 +118,6 @@ export default function AddColumnsModal({ closeModal, handleSave }) {
       </ModalContent>
     </Modal>
   );
-}
+};
+
+export default AddColumnsModal;

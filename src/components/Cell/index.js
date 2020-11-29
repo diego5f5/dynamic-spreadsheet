@@ -6,13 +6,13 @@ import moment from "moment";
 // Styles
 import { Container, SelectCell, SelectOption, InputCell } from "./styles";
 
-export default function Cell({
+const Cell = ({
   columnType,
   isRequired,
   value,
   onChangeValue,
   selectOptions,
-}) {
+}) => {
   const [error, setError] = useState(null);
 
   /* 
@@ -79,4 +79,6 @@ export default function Cell({
       )}
     </Container>
   );
-}
+};
+
+export default Cell;

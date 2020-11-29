@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Libraries
+import { connect } from "react-redux";
+
 // Logo
 import Logo from "../assets/spreadsheet.svg";
 
@@ -7,6 +10,7 @@ import Logo from "../assets/spreadsheet.svg";
 import Cell from "../components/Cell";
 import IndexColumn from "../components/IndexColumn";
 import AddColumnsModal from "../components/AddColumnsModal";
+import HandleData from "../components/HandleData";
 
 // Styles
 import {
@@ -14,6 +18,7 @@ import {
   SpreadsheetLogo,
   MainTitle,
   HeaderContainer,
+  HeaderSection,
   ColButton,
   SpreadsheetContainer,
   FooterContainer,
@@ -23,23 +28,26 @@ import {
   ColumnHeader,
 } from "./styles";
 
-export default function Main() {
-  const [modalIsShowing, setModalIsShowing] = useState(false);
-  const [spreadsheetData, setSpreadsheetData] = useState({
-    totalRows: 0,
-    columns: [],
-  });
+const setSpreadsheetData = (data) => {
+  return {
+    type: "SET_SPREADSHEET_DATA",
+    data,
+  };
+};
 
-  const handleHeaderChange = (value, indexC) => {
+const Main = ({ spreadsheetData, dispatch }) => {
+  const [modalIsShowing, setModalIsShowing] = useState(false);
+
+  const handleHeaderChange = (value, indexColumn) => {
     const auxData = { ...spreadsheetData };
-    auxData.columns[indexC].columnTitle = value;
-    setSpreadsheetData(auxData);
+    auxData.columns[indexColumn].columnTitle = value;
+    dispatch(setSpreadsheetData(auxData));
   };
 
-  const handleCellChange = (value, indexC, indexR) => {
+  const handleCellChange = (value, indexColumn, indexRow) => {
     const auxData = { ...spreadsheetData };
-    auxData.columns[indexC].rows[indexR].value = value;
-    setSpreadsheetData(auxData);
+    auxData.columns[indexColumn].rows[indexRow].value = value;
+    dispatch(setSpreadsheetData(auxData));
   };
 
   const addRows = (number) => {
@@ -50,7 +58,7 @@ export default function Main() {
       }
     });
     auxData.totalRows += number;
-    setSpreadsheetData(auxData);
+    dispatch(setSpreadsheetData(auxData));
   };
 
   const createNewColumn = (column) => {
@@ -59,10 +67,12 @@ export default function Main() {
       for (let i = 0; i < 10; i++) {
         column.rows.push({ value: "" });
       }
-      setSpreadsheetData({
-        totalRows: 10,
-        columns: [column],
-      });
+      dispatch(
+        setSpreadsheetData({
+          totalRows: 10,
+          columns: [column],
+        })
+      );
     } else {
       // Other columns created
       for (let i = 0; i < spreadsheetData.totalRows; i++) {
@@ -70,15 +80,21 @@ export default function Main() {
       }
       const auxData = { ...spreadsheetData };
       auxData.columns.push(column);
-      setSpreadsheetData(auxData);
+      dispatch(setSpreadsheetData(auxData));
     }
   };
 
   return (
     <Container>
       <HeaderContainer>
-        <MainTitle>Dynamic Spreadsheet</MainTitle>
-        <SpreadsheetLogo src={Logo} />
+        <HeaderSection />
+        <HeaderSection>
+          <MainTitle>Dynamic Spreadsheet</MainTitle>
+          <SpreadsheetLogo src={Logo} />
+        </HeaderSection>
+        <HeaderSection>
+          <HandleData />
+        </HeaderSection>
       </HeaderContainer>
 
       <ColButton
@@ -102,24 +118,29 @@ export default function Main() {
       spreadsheetData.columns.length !== 0 ? (
         <SpreadsheetContainer>
           <GridWrapper>
-            <IndexColumn totalRows={spreadsheetData.totalRows} />
-            {spreadsheetData.columns.map((column, indexC) => (
-              <Column key={indexC}>
+            <IndexColumn />
+            {spreadsheetData.columns.map((column, indexColumn) => (
+              <Column key={indexColumn}>
                 <ColumnHeader
+                  title={column.columnTitle}
                   placeholder={"Column Title"}
-                  onChange={(e) => handleHeaderChange(e.target.value, indexC)}
+                  onChange={(e) =>
+                    handleHeaderChange(e.target.value, indexColumn)
+                  }
                   value={column.columnTitle}
                 />
-                {column.rows.map((row, indexR) => (
+                {column.rows.map((row, indexRow) => (
                   <Cell
-                    key={`${indexC}-${indexR}`}
+                    key={`${indexColumn}-${indexRow}`}
                     columnType={column.columnType}
                     isRequired={column.isRequired}
                     selectOptions={column.selectOptions}
                     onChangeValue={(e) => {
-                      handleCellChange(e.target.value, indexC, indexR);
+                      handleCellChange(e.target.value, indexColumn, indexRow);
                     }}
-                    value={spreadsheetData.columns[indexC].rows[indexR].value}
+                    value={
+                      spreadsheetData.columns[indexColumn].rows[indexRow].value
+                    }
                   />
                 ))}
               </Column>
@@ -137,4 +158,6 @@ export default function Main() {
       </FooterContainer>
     </Container>
   );
-}
+};
+
+export default connect((state) => ({ spreadsheetData: state }))(Main);

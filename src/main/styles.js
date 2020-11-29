@@ -10,23 +10,33 @@ export const Container = styled.div`
   background-color: white;
 `;
 
-// Header
 export const HeaderContainer = styled.div`
   display: flex;
+  margin-top: 8px;
+  width: 100%;
+`;
+
+export const HeaderSection = styled.div`
+  display: flex;
+  width: 100%;
   align-items: center;
-  margin-top: 10px;
+  justify-content: center;
+
+  :last-of-type {
+    justify-content: flex-end;
+  }
 `;
 
 export const MainTitle = styled.p`
   color: #305dff;
   margin-right: 10px;
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
 export const SpreadsheetLogo = styled.img`
-  height: 30px;
+  height: 35px;
 `;
 
 export const ColButton = styled.button`
@@ -41,14 +51,13 @@ export const ColButton = styled.button`
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  margin: 10px 0 10px 0;
+  margin: 8px 0 8px 0;
 
   :hover {
     opacity: 0.7;
   }
 `;
 
-// Body
 export const SpreadsheetContainer = styled.div`
   display: flex;
   overflow: auto;
@@ -80,22 +89,21 @@ export const ColumnHeader = styled.input`
   }
 `;
 
-// Footer
 export const FooterContainer = styled.div`
   display: flex;
-  margin: 5px 0;
+  margin: 8px 0;
 `;
 
 export const AddRowsButton = styled.button`
-  height: 30px;
-  min-height: 20px;
+  height: 35px;
+  min-height: 35px;
   padding: 0 5px;
   border: solid 2px #305dff;
   letter-spacing: 1px;
   border-radius: 5px;
   color: #305dff;
   background-color: white;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
 
