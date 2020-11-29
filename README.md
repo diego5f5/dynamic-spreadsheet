@@ -14,6 +14,10 @@
 
 ![Main Scree](https://i.imgur.com/yYOYSHM.png)
 
+#### When there is an error regarding cell validation, the reason for the error can be seen when the mouse cursor stops over the highlighted cell.
+
+![Main Scree](https://i.imgur.com/xxT1Ig9.gif)
+
 #### Still on the main screen, after creating a column and eventually its spreadsheet, the user can choose to save the data in Local Storage, so that eventually he can generate a spreadsheet again with these saved data, in addition to saving and reading the saved data, the user can also delete them if he wants. These actions are found in the upper right corner of the screen.
 
 ![Main Scree](https://i.imgur.com/ebciJf8.png)
