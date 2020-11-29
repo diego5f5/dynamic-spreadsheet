@@ -4,7 +4,7 @@
 This application aims, as the name suggests, to manipulate the creation of a dynamic spreadsheet. A Web application developed with ReactJS that allows the user to create rows and columns in a way that he can specify some details such as: title, type, and even if a column is required.</h4>
 
 <p align="center">
-  <a href="#computer-technologies">Libraries</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#books-libraries">Libraries</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </p>
 
