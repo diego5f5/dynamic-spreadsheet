@@ -5,8 +5,8 @@
 </h4>
 
 <p align="center">
-  <a href="#books-libraries">Libraries</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#information_source-how-to-use">How To Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="#books-libraries">Libraries</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">How To Use</a>
 </p>
 
 <h4 align="center">
